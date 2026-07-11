@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta   charset="UTF-8">
+    <meta   name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta   name="description" content="SkillMatch: descubra sua compatibilidade com vagas de desenvolvimento Front-End.">
+    <title>SkillMatch | Compatibilidade com vagas</title>
+    <link  rel="stylesheet" href="./Assets/Styles/style.css">
+
+</head>
+
+<body>
+    <header>
+        <div class="cabecalho-conteudo"> 
+            <h1>SkillMatch</h1>
+            <p>Descubra sua compatibilidade com vagas Front-End.</p>
+        </div>
+    </header>
+    
+    <main>
+
+        <section aria-labelledby="titulo-perfil">
+
+            <h2 id="titulo-perfil">Perfil do candidato.</h2>
+
+            <form id="formulario-perfil">
+
+                <div class="campo">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+                    <span class="mensagem-erro" id="erro-nome" aria-live="polite"></span>
+                </div>
+
+                 <div class="campo">
+                    <label for="area">Área de interesse</label>
+                    <input type="text" id="area" name="area" value="Front-End" required>
+                    <span class="mensagem-erro" id="erro-area" aria-live="polite"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="habilidades">Habilidades</label>
+                    <input type="text" id="habilidades" name="habilidades" placeholder="Ex.: HTML, CSS, JavaScript" required>
+                    <small>Separe as habilidades por vírgula.</small>
+                    <span class="mensagem-erro" id="erro-habilidades" aria-live="polite"></span>
+                </div>
+
+                 <div class="campo">
+                    <label for="experiencia">Experiência em meses</label>
+                    <input type="number" id="experiencia" name="experiencia" min="0" value="0" required>
+                    <span class="mensagem-erro" id="erro-experiencia" aria-live="polite"></span>
+                </div>
+
+                <button type="submit">Analisar compatibilidade</button>
+
+            </form>
+        </section>
+
+        <section id="secao-resultados" aria-labelledby="titulo-resultados">
+
+            <h2 id="titulo-resultados">Vagas Disponíveis</h2>
+
+            <div id="status-vagas" aria-live="polite">Preencha seu perfil para continuar a análise.</div>
+
+            <div id="melhor-vaga"></div>
+
+            <div id="lista"></div>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>Projeto SkillMatch — Desenvolvido com HTML, CSS e JavaScript.</p>
+    </footer>
+
+    <script type="module" src="./Assets/Scripts/main.js"></script>
+
+</body>
+</html>

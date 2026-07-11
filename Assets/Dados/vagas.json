@@ -1,0 +1,57 @@
+[
+    {
+        "id": 1,
+        "empresa": "Tech Solutions",
+        "cargo": "Desenvolvedor Front-End",
+        "requisitos": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Git"
+        ],
+        "salario": 3500,
+        "modalidade": "Remoto"
+    },
+
+    {
+        "id": 2,
+        "empresa": "InovaTech",
+        "cargo": "Desenvolvedor Front-End",
+        "requisitos": [
+            "HTML",
+            "CSS",
+            "React",
+            "JavaScript"
+        ],
+        "salario": 4200,
+        "modalidade": "Híbrido"
+    },
+
+    {
+        "id": 3,
+        "empresa": "WebGenius",
+        "cargo": "Desenvolvedor Front-End",
+        "requisitos": [
+            "JavaScript",
+            "CSS",
+            "GitHub"
+        ],
+        "salario": 3900,
+        "modalidade": "Remoto"
+    },
+
+    {
+        "id": 4,
+        "empresa": "Code Masters",
+        "cargo": "Desenvolvedor Front-End",
+        "requisitos": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "React",
+            "GitHub"
+        ],
+        "salario": 5000,
+        "modalidade": "Presencial"
+    }
+]

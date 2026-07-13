@@ -143,7 +143,7 @@ export function gerarRecomendacao(melhorResultado) {
     const faltantes = melhorResultado.habilidadesFaltantes;
 
     if (faltantes.length === 0) {
-        return "Você atende a todos os requisitos da vaga mais compatível. Parabéns!";
+        return "Você atende a todos os requisitos da vaga. Parabéns!";
     }
 
     return `Para aumentar sua compatibilidade, recomendamos estudar: ${faltantes.join(

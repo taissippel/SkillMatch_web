@@ -2,7 +2,7 @@ import { Vaga } from "./motor.js";
 
 export async function carregarVagas() {
 
-    const resposta = await fetch("./assets/dados/vagas.json");
+    const resposta = await fetch("./Assets/Dados/vagas.json");
 
     if (!resposta.ok) {
         throw new Error("Não foi possível carregar as vagas.");

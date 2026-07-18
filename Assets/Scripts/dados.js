@@ -1,5 +1,7 @@
 import { Vaga } from "./motor.js";
 
+const CHAVE_PERFIL = "skillmatch_perfil";
+
 export async function carregarVagas() {
 
     const resposta = await fetch("./Assets/Dados/vagas.json");
@@ -23,4 +25,25 @@ export async function carregarVagas() {
 
     });
 
+}
+
+export function salvarPerfil(candidato) {
+    const candidatoEmTexto = JSON.stringify(candidato);
+
+    localStorage.setItem(CHAVE_PERFIL, candidatoEmTexto);
+}
+
+export function carregarPerfil() {
+    const perfilSalvo = localStorage.getItem(CHAVE_PERFIL);
+
+    if (perfilSalvo === null) {
+        return null;
+    }
+
+    try {
+        return JSON.parse(perfilSalvo);
+    } catch (erro) {
+        localStorage.removeItem(CHAVE_PERFIL);
+        return null;
+    }
 }

@@ -39,6 +39,26 @@ export function coletarDadosDoCandidato() {
     };
 }
 
+// - RECEBER O PERFIL RECUPERADO 
+// - ENCERRAR SE FOR A PRIMEIRA VISITA 
+// - PREENCHE NOME E ÁREA
+// - TRANSFORMA O ARRAY DE HABILIDADES EM TEXTO SEPARADO POR VÍRGULA
+// - RESTAURA A EXPERIÊNCIA.
+export function preencherFormulario(perfil) {
+    if (perfil === null) {
+        return;
+    }
+
+    campoNome.value = perfil.nome ?? "";
+    campoArea.value = perfil.area ?? "Front-End";
+
+    campoHabilidades.value = Array.isArray(perfil.habilidades)
+        ? perfil.habilidades.join(", ")
+        : "";
+
+    campoExperiencia.value = perfil.experienciaMeses ?? 0;
+}
+
 
 // ======================================================
 // MOSTRAR STATUS

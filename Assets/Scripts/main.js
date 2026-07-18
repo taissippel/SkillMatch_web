@@ -1,4 +1,8 @@
-import { carregarVagas } from "./dados.js";
+import {
+    carregarVagas,
+    salvarPerfil,
+    carregarPerfil
+} from "./dados.js";
 
 import {
     analisarVagas,
@@ -11,6 +15,7 @@ import {
 import {
     obterFormulario,
     coletarDadosDoCandidato,
+    preencherFormulario,
     mostrarStatus,
     renderizarVagas,
     renderizarMelhorVaga
@@ -24,6 +29,10 @@ let vagasCarregadas = [];
 
 
 async function iniciarAplicacao() {
+    const perfilSalvo = carregarPerfil();
+
+    preencherFormulario(perfilSalvo);
+
     try {
         mostrarStatus("Carregando vagas...");
 
@@ -47,6 +56,8 @@ formulario.addEventListener("submit", function (evento) {
     evento.preventDefault();
 
     const candidato = coletarDadosDoCandidato();
+
+    salvarPerfil(candidato);
 
     const resultados = analisarVagas(
         candidato,

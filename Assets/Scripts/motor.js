@@ -16,32 +16,46 @@ export class Vaga {
     }
 
     // Método da classe que usa os dados da própria vaga.
-    analisarCandidato(candidato) {
-        const habilidadesEncontradas = this.requisitos.filter((requisito) => {
-            return candidato.habilidades.includes(requisito);
-        });
+        analisarCandidato(candidato) {
+            const habilidadesNormalizadas = candidato.habilidades.map(
+                (habilidade) => {
+                    return habilidade.toLowerCase();
+                }
+            );
 
-        const habilidadesFaltantes = this.requisitos.filter((requisito) => {
-            return !candidato.habilidades.includes(requisito);
-        });
+            const habilidadesEncontradas = this.requisitos.filter(
+                (requisito) => {
+                    return habilidadesNormalizadas.includes(
+                        requisito.toLowerCase()
+                    );
+                }
+            );
 
-        const percentual = Math.round(
-            (habilidadesEncontradas.length / this.requisitos.length) * 100
-        );
+            const habilidadesFaltantes = this.requisitos.filter(
+                (requisito) => {
+                    return !habilidadesNormalizadas.includes(
+                        requisito.toLowerCase()
+                    );
+                }
+            );
 
-        return {
-            vaga: this,
-            percentual,
-            classificacao: classificarCompatibilidade(percentual),
-            habilidadesEncontradas,
-            habilidadesFaltantes
+            const percentual = Math.round(
+                (habilidadesEncontradas.length / this.requisitos.length) * 100
+            );
+
+            return {
+                vaga: this,
+                percentual,
+                classificacao: classificarCompatibilidade(percentual),
+                habilidadesEncontradas,
+                habilidadesFaltantes
         };
     }
 
-    obterRotulo() {
-        return `${this.cargo} — ${this.empresa}`;
+        obterRotulo() {
+            return `${this.cargo} — ${this.empresa}`;
+        }
     }
-}
 
 
 // ======================================================

@@ -6,6 +6,10 @@ const campoNome = document.getElementById("nome");
 const campoArea = document.getElementById("area");
 const campoHabilidades = document.getElementById("habilidades");
 const campoExperiencia = document.getElementById("experiencia");
+const erroNome = document.getElementById("erro-nome");
+const erroArea = document.getElementById("erro-area");
+const erroHabilidades = document.getElementById("erro-habilidades");
+const erroExperiencia = document.getElementById("erro-experiencia");
 
 const statusVagas = document.getElementById("status-vagas");
 const listaVagas = document.getElementById("lista-vagas");
@@ -58,6 +62,83 @@ export function preencherFormulario(perfil) {
 
     campoExperiencia.value = perfil.experienciaMeses ?? 0;
 }
+
+function exibirErro(campo, elementoErro, mensagem) {
+    elementoErro.textContent = mensagem;
+
+    campo.setAttribute(
+        "aria-invalid",
+        mensagem !== "" ? "true" : "false"
+    );
+}
+
+export function validarFormulario() {
+    let formularioValido = true;
+
+    const nome = campoNome.value.trim();
+    const area = campoArea.value.trim();
+
+    const habilidades = campoHabilidades.value
+        .split(",")
+        .map((habilidade) => habilidade.trim())
+        .filter((habilidade) => habilidade !== "");
+
+    const experiencia = Number(campoExperiencia.value);
+
+    exibirErro(campoNome, erroNome, "");
+    exibirErro(campoArea, erroArea, "");
+    exibirErro(campoHabilidades, erroHabilidades, "");
+    exibirErro(campoExperiencia, erroExperiencia, "");
+
+    if (nome.length < 2) {
+        exibirErro(
+            campoNome,
+            erroNome,
+            "Informe um nome com pelo menos 2 caracteres."
+        );
+
+        formularioValido = false;
+    }
+
+    if (area === "") {
+        exibirErro(
+            campoArea,
+            erroArea,
+            "Informe sua área de interesse."
+        );
+
+        formularioValido = false;
+    }
+
+    if (habilidades.length === 0) {
+        exibirErro(
+            campoHabilidades,
+            erroHabilidades,
+            "Informe pelo menos uma habilidade."
+        );
+
+        formularioValido = false;
+    }
+
+    if (
+        campoExperiencia.value === "" ||
+        Number.isNaN(experiencia) ||
+        experiencia < 0
+    ) {
+        exibirErro(
+            campoExperiencia,
+            erroExperiencia,
+            "Informe um número de meses igual ou maior que zero."
+        );
+
+        formularioValido = false;
+    }
+
+    return formularioValido;
+}
+
+
+  
 
 
 // ======================================================

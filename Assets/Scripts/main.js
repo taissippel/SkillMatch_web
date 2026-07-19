@@ -16,6 +16,7 @@ import {
     obterFormulario,
     coletarDadosDoCandidato,
     preencherFormulario,
+    validarFormulario,
     mostrarStatus,
     renderizarVagas,
     renderizarMelhorVaga
@@ -54,6 +55,13 @@ async function iniciarAplicacao() {
 
 formulario.addEventListener("submit", function (evento) {
     evento.preventDefault();
+
+    const formularioValido = validarFormulario();
+
+    if (!formularioValido) {
+        mostrarStatus("Revise os campos indicados antes de continuar.");
+        return;
+        }
 
     const candidato = coletarDadosDoCandidato();
 

@@ -1,0 +1,248 @@
+/* CONFIGURAÇÕES GERAIS */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --cor-fundo: #0f172a;
+    --cor-superficie: #1e293b;
+    --cor-card: #ffffff;
+    --cor-principal: #38bdf8;
+    --cor-principal-escura: #0284c7;
+    --cor-texto: #e2e8f0;
+    --cor-texto-escuro: #1e293b;
+    --cor-sucesso: #15803d;
+    --cor-erro: #dc2626;
+    --cor-borda: #cbd5e1;
+    --sombra: 0 0.5rem 1.5rem rgba(15, 23, 42, 0.18);
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+
+/* CABEÇALHO */
+
+header {
+    padding: 2rem 1rem;
+    background: linear-gradient(135deg, #0f172a, #0369a1);
+    text-align: center;
+}
+
+.cabecalho-conteudo {
+    width: min(100%, 70rem);
+    margin: 0 auto;
+}
+
+.logo {
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    margin: 0 auto 1rem;
+}
+
+h1 {
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    color: #ffffff;
+}
+
+header p {
+    margin-top: 0.5rem;
+    font-size: clamp(1rem, 4vw, 1.25rem);
+}
+
+/* CONTEÚDO PRINCIPAL */
+
+main {
+    width: min(100% - 2rem, 70rem);
+    margin: 2rem auto;
+}
+
+section {
+    margin-bottom: 2rem;
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+    background-color: var(--cor-superficie);
+}
+
+h2 {
+    margin-bottom: 1.25rem;
+    color: var(--cor-principal);
+}
+
+/* FORMULÁRIO */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+label {
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 0.125rem solid var(--cor-borda);
+    border-radius: 0.5rem;
+    background-color: #ffffff;
+    color: var(--cor-texto-escuro);
+    font-size: 1rem;
+}
+
+input:focus {
+    border-color: var(--cor-principal);
+    outline: 0.2rem solid rgba(56, 189, 248, 0.35);
+}
+
+input[aria-invalid="true"] {
+    border-color: var(--cor-erro);
+}
+
+small {
+    color: #cbd5e1;
+}
+
+.mensagem-erro {
+    min-height: 1.5rem;
+    color: #fca5a5;
+    font-size: 0.9rem;
+}
+
+button {
+    padding: 0.9rem 1.25rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: var(--cor-principal);
+    color: #082f49;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition:
+        background-color 0.2s,
+        transform 0.2s;
+}
+
+button:hover {
+    background-color: #7dd3fc;
+    transform: translateY(-0.1rem);
+}
+
+button:focus-visible {
+    outline: 0.2rem solid #ffffff;
+    outline-offset: 0.2rem;
+}
+
+/* RESULTADOS */
+
+#status-vagas {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    background-color: #334155;
+}
+
+#lista-vagas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.card-vaga {
+    flex: 1 1 17rem;
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+    background-color: var(--cor-card);
+    color: var(--cor-texto-escuro);
+    box-shadow: var(--sombra);
+}
+
+.card-vaga h3 {
+    margin-bottom: 0.75rem;
+    color: var(--cor-principal-escura);
+}
+
+.card-vaga p {
+    margin-bottom: 0.5rem;
+}
+
+.percentual {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+#melhor-vaga {
+    margin-bottom: 1.5rem;
+}
+
+.melhor-vaga {
+    padding: 1.25rem;
+    border: 0.15rem solid #facc15;
+    border-radius: 0.75rem;
+    background-color: #422006;
+    color: #fef3c7;
+}
+
+.melhor-vaga h3 {
+    margin-bottom: 0.75rem;
+    color: #fde047;
+}
+
+.experiencia-atendida {
+    color: var(--cor-sucesso);
+    font-weight: bold;
+}
+
+.experiencia-pendente {
+    color: var(--cor-erro);
+    font-weight: bold;
+}
+
+/* RODAPÉ */
+
+footer {
+    padding: 1.5rem 1rem;
+    background-color: #020617;
+    text-align: center;
+}
+
+/* TABLET E DESKTOP */
+
+@media (min-width: 48rem) {
+    main {
+        margin-block: 3rem;
+    }
+
+    section {
+        padding: 2rem;
+    }
+
+    form {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+
+    .campo {
+        flex: 1 1 20rem;
+    }
+
+    button {
+        width: 100%;
+    }
+}

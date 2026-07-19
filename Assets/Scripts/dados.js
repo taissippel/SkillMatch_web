@@ -1,4 +1,7 @@
-import { Vaga } from "./motor.js";
+import {
+    Vaga,
+    VagaFrontEndJunior
+} from "./motor.js";
 
 const CHAVE_PERFIL = "skillmatch_perfil";
 
@@ -13,6 +16,19 @@ export async function carregarVagas() {
     const vagas = await resposta.json();
 
     return vagas.map((vaga) => {
+   
+
+        if (vaga.experienciaMinima !== undefined) {
+        return new VagaFrontEndJunior(
+            vaga.id,
+            vaga.empresa,
+            vaga.cargo,
+            vaga.requisitos,
+            vaga.salario,
+            vaga.modalidade,
+            vaga.experienciaMinima
+    );
+}
 
         return new Vaga(
             vaga.id,

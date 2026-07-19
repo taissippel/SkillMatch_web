@@ -2,7 +2,7 @@
     {
         "id": 1,
         "empresa": "Tech Solutions",
-        "cargo": "Desenvolvedor Front-End",
+        "cargo": "Desenvolvedor Front-End Júnior",
         "requisitos": [
             "HTML",
             "CSS",
@@ -10,7 +10,8 @@
             "Git"
         ],
         "salario": 3500,
-        "modalidade": "Remoto"
+        "modalidade": "Remoto",
+        "experienciaMinima": "3"
     },
 
     {

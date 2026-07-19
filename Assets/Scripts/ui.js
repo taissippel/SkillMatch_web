@@ -165,6 +165,7 @@ export function limparResultados() {
 // ======================================================
 
 function criarCardVaga(resultado) {
+ 
     const card = document.createElement("article");
     card.classList.add("card-vaga");
 
@@ -201,16 +202,34 @@ function criarCardVaga(resultado) {
             : "Nenhuma"
     }`;
 
-    card.append(
-        titulo,
-        empresa,
-        modalidade,
-        salario,
-        percentual,
-        classificacao,
-        encontradas,
-        faltantes
-    );
+        const elementosDoCard = [
+            titulo,
+            empresa,
+            modalidade,
+            salario,
+            percentual,
+            classificacao,
+            encontradas,
+            faltantes
+        ];
+
+        if (resultado.experienciaMinima !== undefined) {
+            const experiencia = document.createElement("p");
+
+            experiencia.textContent = resultado.atendeExperiencia
+                ? `Experiência mínima: ${resultado.experienciaMinima} meses — requisito atendido.`
+                : `Experiência mínima: ${resultado.experienciaMinima} meses — requisito ainda não atendido.`;
+
+            experiencia.classList.add(
+                resultado.atendeExperiencia
+                    ? "experiencia-atendida"
+                    : "experiencia-pendente"
+            );
+
+            elementosDoCard.push(experiencia);
+        }
+
+card.append(...elementosDoCard);
 
     return card;
 }

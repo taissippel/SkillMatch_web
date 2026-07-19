@@ -37,11 +37,16 @@ async function iniciarAplicacao() {
     try {
         mostrarStatus("Carregando vagas...");
 
-        vagasCarregadas = await carregarVagas();
+       vagasCarregadas = await carregarVagas();
 
-        mostrarStatus(
-            "Vagas carregadas. Preencha seu perfil para iniciar a análise."
-        );
+            if (vagasCarregadas.length === 0) {
+                mostrarStatus("Nenhuma vaga disponível no momento.");
+                return;
+            }
+
+            mostrarStatus(
+                "Vagas carregadas. Preencha seu perfil para iniciar a análise."
+            );
 
     } catch (erro) {
         mostrarStatus(
@@ -62,6 +67,11 @@ formulario.addEventListener("submit", function (evento) {
         mostrarStatus("Revise os campos indicados antes de continuar.");
         return;
         }
+
+    if (vagasCarregadas.length === 0) {
+    mostrarStatus("Não existem vagas disponíveis para análise.");
+    return;
+}
 
     const candidato = coletarDadosDoCandidato();
 

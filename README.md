@@ -4,6 +4,13 @@ Aplicação web que analisa a compatibilidade entre o perfil de um candidato e v
 
 O usuário informa suas habilidades e experiência. O sistema compara esses dados com os requisitos das vagas, calcula o percentual de compatibilidade, apresenta as habilidades encontradas e faltantes, destaca a melhor oportunidade e gera uma recomendação de estudo.
 
+## Linkd do projeto
+- Quadro do Trello
+https://trello.com/invite/b/6a09f19d089ee592f73bcd75/ATTI934cb5a83850600ad823c6f89f50430a61271A1D/skillmatch-js-web-simulador
+
+- Vídeo de apresentação do Google Drive
+https://drive.google.com/file/d/1s-H-97RlWfXUBBWDkDF8zVVyDfYuUPmC/view?usp=drive_link 
+
 ## Funcionalidades
 
 - Cadastro do perfil do candidato;
